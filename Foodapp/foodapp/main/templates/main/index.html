@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eatsy</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <!-- Header -->
+<header>
+    <div class="logo">🍲</div>
+    <nav>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button id="searchBtn">Search</button>
+        <a href="{% url 'help' %}" id="helpBtn">Help</a>
+        <a href="{% url 'signin' %}" id="signInBtn">Sign In</a> 
+         <a href="{% url 'cart' %}" id="cart-link">
+             <img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Cart" class="cart-icon">
+             <span id="cart-count"></span>
+         </a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Food brings us together; let's feast on joy!</h1>
+</div>
+
+    <!-- Category Section -->
+    <section class="categories">
+
+        <!-- Gift Hampers Slider -->
+        <div class="gift-hamper-slider">
+            <button class="slider-btn prev" onclick="moveSlide(-1)">&lt;</button>
+            <div class="gift-hamper-cards">
+                <div class="card">
+                    <img src="https://www.kolkatagiftsonline.com/pic/GG07676.jpg" alt="Gift Hampers">
+                    </div>
+                <div class="card">
+                    <img src="https://i.gifer.com/origin/11/11ecdb4bef25fc8e1001d4fc88b79293.gif" alt="Gift Hampers">
+                    
+                </div>
+                <div class="card">
+                    <img src=" https://assets.foodhub.com/images/thumbnails/breads_burgers_pizza_017_692x306.jpg" alt="Gift Hampers">
+                </div>
+            </div>
+            <button class="slider-btn next" onclick="moveSlide(1)">&gt;</button>
+        </div>
+
+        <h1>What's on your mind?</h1>
+        
+        <!-- Other Category Cards -->
+        <div class="category-slider">
+            <div class="category-cards">
+               <!-- <div class="card">
+                    <a href="dessert.html">
+                        <img src="https://images3.alphacoders.com/133/1338868.png" alt="Dessert">
+                        <p>Dessert</p>
+                    </a>
+                </div>-->
+                <!-- Link the Dessert card to the dessert page -->
+            <div class="card">
+                <a href="{% url 'dessert' %}">
+                    <img src="https://images3.alphacoders.com/133/1338868.png" alt="Dessert">
+                    <p>Dessert</p>
+                </a>
+            </div>
+
+                <div class="card">
+                    <a href="{% url 'pizza' %}"> 
+                        <img src="https://rookie-chef.com/wp-content/uploads/2014/09/output_ekyotw.gif" alt="Pizza">
+                        <p>Pizza</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="{% url 'burger' %}">
+                        <img src="https://images6.alphacoders.com/831/thumb-1920-831475.jpg" alt="Burger">
+                        <p>Burger</p>
+                    </a>
+                    
+                </div>
+                <div class="card">
+                    <a href="{% url 'soup' %}">
+                        <img src="https://static.toiimg.com/thumb/62378548.cms?width=1200&height=900" alt="Soups">
+                        <p>Soups</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="{% url 'soup' %}">
+                        <img src="https://cdn.shopify.com/s/files/1/0517/4609/files/HD-Coca-Cola-Photos_large.jpg?v=1544425170" alt="Drinks">
+                        <p>Drinks</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'main/js/app.js' %}"></script>
+
+</body>
+</html>
+

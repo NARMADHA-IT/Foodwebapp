@@ -1,0 +1,230 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Header */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text color for contrast */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #1f1f1f; /* Darker header background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+header .logo {
+    font-size: 24px;
+    color: #76ff03; /* Bright green for the logo */
+}
+
+header nav a {
+    margin: 0 15px;
+    color: #76ff03; /* Bright green for links */
+    text-decoration: none; /* Remove text decoration for nav links */
+}
+
+
+#searchInput {
+
+    width: 900px; 
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#searchBtn,
+#helpBtn,
+#signInBtn {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#searchBtn {
+    margin-right: 10px; /* Space between the button and other elements */
+}
+
+#helpBtn,
+#signInBtn {
+    margin-left: 10px; /* Space between buttons */
+    color: white;
+    text-decoration: none; /* Remove underline */
+}
+
+
+
+/* Remove text decoration for all links */
+a {
+    text-decoration: none; /* Remove text decoration from all links */
+    color: #76ff03; /* Make link text green */
+}
+.container {
+    text-align: center; /* Center text horizontally */
+    padding: 50px; /* Optional padding */
+}
+h1 {
+    color: #44785c; /* Change text color if needed */
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    width: 350px;
+    padding: 20px;
+    background-color: #1f1f1f; /* Dark card background */
+    border: 1px solid #151514; /* Green border for cards */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.card img {
+    width: 350px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+.card p {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff; /* White text for card descriptions */
+}
+
+/* Slider Buttons */
+.slider-btn {
+    background-color: #76ff03; /* Green button color */
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000; /* Black text for buttons */
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prev {
+    left: -20px;
+}
+
+.next {
+    right: -20px;
+}
+
+/* Gift Hamper Cards */
+.gift-hamper-card {
+    margin: 10px; /* Add some space around the gift hamper */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.gift-hamper-card img {
+    width: 600px; /* New width for the card images */
+    height: 450px; /* New height for the card images */
+    border-radius: 10px; /* Keep the rounded edges */
+}
+
+.category-slider {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    justify-content: center; /* Center the cards */
+}
+
+.category-cards {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    max-width: 1200px; /* Ensure a maximum width */
+}
+
+.card {
+    flex: 1 1 calc(33.33% - 20px); /* 3 cards in first row */
+    margin: 10px; /* Add some spacing */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 20px); /* 2 cards in second row */
+    }
+}
+
+
+/* Increase the size of the slider */
+.gift-hamper-slider {
+    position: relative;
+    overflow: hidden;
+    width: 600px; /* Increase slider width */
+    height: 450px; /* Increase slider height */
+    margin: 0 auto; /* Center the slider */
+}
+
+
+/* Increase the size of the cards */
+.gift-hamper-cards {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 1800px; /* 3 images * updated width of each image */
+    height: 450px; /* Adjust to match slider height */
+    margin: 0 auto; /* Center the cards within the slider */
+}
+
+.card {
+    min-width: 400px; /* Adjust according to image width */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(76, 175, 80, 0.8); /* Slightly transparent green */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.cart-icon {
+    width: 24px; /* Set a fixed width for the cart icon */
+    height: 24px; /* Set a fixed height for the cart icon */
+    margin-left: 20px; /* Space between sort button and cart icon */
+}
+
+

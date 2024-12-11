@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soups</title>
+    <link rel="stylesheet" href="{% static 'main/css/soup.css' %}">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <a href="{% url 'index' %}" class="home-link">
+        <img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Home Icon" class="home-icon"> Home
+    </a>
+    <nav>
+        <div class="nav-items">
+            <input type="text" id="search-input" placeholder="Search Soups...">
+            <button id="search-button">Search</button>
+            <select id="sort-select">
+                <option value="default">Sort by</option>
+                <option value="low-to-high">Price: Low to High</option>
+                <option value="high-to-low">Price: High to Low</option>
+            </select>
+            <button id="sort-button">Sort</button>
+            <a href="{% url 'cart' %}" id="cart-link">
+                <img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Cart" class="cart-icon">
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<!-- Soup Section -->
+<section class="soups">
+    <h2>Our Delicious Soups</h2>
+    <div class="soup-cards">
+        <!-- Soup items will be dynamically generated here -->
+    </div>
+</section>
+
+<script src="{% static 'main/js/soup.js' %}"></script>
+</body>
+</html>

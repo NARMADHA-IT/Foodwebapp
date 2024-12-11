@@ -1,0 +1,138 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #d4d4d4; /* Light gray text color for contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1f1f1f; /* Darker header background */
+    color: #28a745; /* Green text color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.home-link {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #28a745; /* Green for home link */
+}
+
+.home-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+/* Drinks Section */
+.drinks {
+    padding: 20px;
+    width: 100%; /* Ensure full width */
+}
+
+.drink-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Card Styles */
+.card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 8px;
+    overflow: hidden;
+    width: 50vw;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #1b1b1b; /* Dark background for cards */
+}
+
+.card img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.drink-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    width: 50%;
+}
+
+.drink-info p {
+    margin: 0 0 15px;
+    font-size: 32px;
+    color: #d4d4d4; /* Light gray for drink info */
+}
+
+/* Button Styles */
+button {
+    margin-right: 10px;
+    padding: 15px 25px;
+    border: none;
+    background-color: #28a745; /* Green background for buttons */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Search and Sort Inputs */
+#search-input, #sort-select {
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #1b1b1b; /* Dark background */
+    color: #d4d4d4; /* Light gray text */
+    border: 1px solid #444; /* Darker border */
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+}
+
+/* Cart Count Badge */
+.cart-count {
+    position: absolute;
+    
+    background-color: #ff0000; /* Red background for cart count */
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 14px;
+}
+

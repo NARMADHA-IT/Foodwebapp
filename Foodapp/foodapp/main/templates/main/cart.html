@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="{% static 'main/css/cart.css' %}">
+</head>
+<body>
+    <section class="cart">
+        <h2>Your Shopping Cart</h2>
+        
+        <!-- Delivery Address Section -->
+        <div class="address-section">
+            <h3>Delivery Address</h3>
+            <button id="addAddressBtn" class="add-address-btn">Add New Address</button>
+            
+            <!-- Address Form (Initially Hidden) -->
+            <div id="addressForm" class="address-form" style="display: none;">
+                <!-- CSRF Token -->
+                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+                <input type="text" id="addressLine1" placeholder="Address Line 1 *" required>
+                <input type="text" id="addressLine2" placeholder="Address Line 2 (Optional)">
+                <input type="text" id="city" placeholder="City *" required>
+                <input type="text" id="state" placeholder="State *" required>
+                <input type="text" id="zipcode" placeholder="Zip Code *" required>
+                <textarea id="additionalInfo" placeholder="Additional Info (Optional)"></textarea>
+                <button id="saveAddressBtn" class="save-address-btn">Save Address</button>
+            </div>
+
+            <!-- Default Address Display -->
+            <p id="defaultAddress" class="default-address"></p>
+        </div>
+
+        <!-- Cart Items Display -->
+        <div id="cart-items" class="cart-items"></div>
+        <div id="total-price" class="total-price"></div>
+
+        <!-- Payment Options Section -->
+        <div class="payment-section">
+            <h3>Select Payment Method</h3>
+            <label>
+                <input type="radio" name="payment-method" value="gpay" checked>
+                Google Pay
+            </label>
+            <label>
+                <input type="radio" name="payment-method" value="cod">
+                Cash on Delivery (₹50 extra)
+            </label>
+        </div>
+
+        <!-- Final Price Calculation Display -->
+        <div id="final-price" class="final-price"></div>
+        <button id="payNowBtn" class="pay-now-btn" style="display: none;">Pay Now</button>
+    </section>
+
+    <script src="{% static 'main/js/cart.js' %}"></script>
+    <script>
+        // Address functionality script
+        const addAddressBtn = document.getElementById('addAddressBtn');
+        const addressForm = document.getElementById('addressForm');
+        const saveAddressBtn = document.getElementById('saveAddressBtn');
+        const defaultAddress = document.getElementById('defaultAddress');
+        const payNowBtn = document.getElementById('payNowBtn');
+        const paymentMethodRadios = document.querySelectorAll('input[name="payment-method"]');
+        const finalPriceDisplay = document.getElementById('final-price');
+        const totalPriceDisplay = document.getElementById('total-price');
+
+        // Sample cart items data (can be dynamically populated from backend)
+        let cartItems = [
+            { name: "Item 1", price: 500 },
+            { name: "Item 2", price: 300 },
+        ];
+        
+        // Calculate the total price
+        function calculateTotalPrice() {
+            let totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+            let gst = totalPrice * 0.18;  // 18% GST
+            let deliveryCharge = 50;  // Delivery charge for COD
+
+            totalPriceDisplay.textContent = `Total Price: ₹${totalPrice.toFixed(2)}`;
+            
+            return { totalPrice, gst, deliveryCharge };
+        }
+
+        // Display final price
+        function displayFinalPrice() {
+            const { totalPrice, gst, deliveryCharge } = calculateTotalPrice();
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+            let finalPrice = totalPrice + gst;
+            let deliveryText = "";
+
+            if (paymentMethod === 'cod') {
+                finalPrice += deliveryCharge;
+                deliveryText = ` + ₹${deliveryCharge} Delivery Charge (COD)`;
+            }
+
+            finalPriceDisplay.innerHTML = `
+                Total Price: ₹${totalPrice.toFixed(2)} <br>
+                GST (18%): ₹${gst.toFixed(2)} <br>
+                Delivery Charge: ₹${deliveryText} <br>
+                <strong>Final Price: ₹${finalPrice.toFixed(2)}</strong>
+            `;
+        }
+
+        // Address functionality
+        addAddressBtn.addEventListener('click', () => {
+            addressForm.style.display = addressForm.style.display === 'block' ? 'none' : 'block';
+        });
+
+        saveAddressBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const line1 = document.getElementById('addressLine1').value.trim();
+            const line2 = document.getElementById('addressLine2').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const state = document.getElementById('state').value.trim();
+            const zipcode = document.getElementById('zipcode').value.trim();
+            const additionalInfo = document.getElementById('additionalInfo').value.trim();
+
+            if (line1 && city && state && zipcode) {
+                // CSRF token
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+                // Send data to the server
+                fetch('/save-address/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken,
+                    },
+                    body: JSON.stringify({
+                        addressLine1: line1,
+                        addressLine2: line2,
+                        city: city,
+                        state: state,
+                        zipcode: zipcode,
+                        additionalInfo: additionalInfo,
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.success) {
+                            // Combine address fields
+                            let fullAddress = `${line1}, `;
+                            if (line2) fullAddress += `${line2}, `;
+                            fullAddress += `${city}, ${state} - ${zipcode}`;
+                            if (additionalInfo) fullAddress += ` (Info: ${additionalInfo})`;
+
+                            // Display default address
+                            defaultAddress.textContent = `Default Address: ${fullAddress}`;
+                            defaultAddress.style.color = '#28a745';
+
+                            // Hide the form after saving
+                            addressForm.style.display = 'none';
+
+                            // Show the "Pay Now" button
+                            payNowBtn.style.display = 'block';
+                            alert(data.success);
+
+                            // Update the final price
+                            displayFinalPrice();
+                        } else {
+                            alert(data.error);
+                        }
+                    })
+                    .catch((error) => console.error("Error:", error));
+            } else {
+                alert("Please fill in all required fields marked with *!");
+            }
+        });
+
+        // Payment Method Selection
+        paymentMethodRadios.forEach((radio) => { 
+            radio.addEventListener('change', () => {
+                displayFinalPrice();
+            });
+        });
+
+        // Initial display of final price
+        displayFinalPrice();
+    </script>
+</body>
+</html>
+

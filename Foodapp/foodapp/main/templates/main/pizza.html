@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzas</title>
+    <link rel="stylesheet" href="{% static 'main/css/pizza.css' %}">
+</head>
+<body>
+    
+<!-- Header -->
+<header>
+    <a href="{% url 'index' %}" class="home-link">
+        <img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Home Icon" class="home-icon"> Home
+    </a>
+    
+    <nav>
+        <div class="nav-items">
+            <input type="text" id="search-input" placeholder="Search Pizzas...">
+            <button id="search-button">Search</button>
+            <select id="sort-select">
+                <option value="default">Sort by</option>
+                <option value="low-to-high">Price: Low to High</option>
+                <option value="high-to-low">Price: High to Low</option>
+            </select>
+            <button id="sort-button">Sort</button>
+            <a href="{% url 'cart' %}" id="cart-link">
+                <img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Cart" class="cart-icon">
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<!-- Pizza Section -->
+<section class="pizzas">
+    <h2>Our Delicious Pizzas</h2>
+    <div class="pizza-cards">
+        <div class="card">
+            <img src="https://media.istockphoto.com/id/1280329631/photo/italian-pizza-margherita-with-tomatoes-and-mozzarella-cheese-on-wooden-cutting-board-close-up.jpg?s=612x612&w=0&k=20&c=CFDDjavIC5l8Zska16UZRZDXDwd47fwmRsUNzY0Ym6o=" alt="Margherita Pizza">
+            <div class="pizza-info">
+                <p>Margherita Pizza - ₹450</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://static.wixstatic.com/media/92be87_bd29ffb7fc444234a7e96133f3b723fc~mv2.jpg/v1/fill/w_480,h_320,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/92be87_bd29ffb7fc444234a7e96133f3b723fc~mv2.jpg" alt="Pepperoni Pizza">
+            <div class="pizza-info">
+                <p>Pepperoni Pizza - ₹500</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://c4.wallpaperflare.com/wallpaper/234/543/684/food-pizza-wallpaper-thumb.jpg" alt="Veggie Pizza">
+            <div class="pizza-info">
+                <p>Veggie Pizza - ₹400</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://bakingmischief.com/wp-content/uploads/2020/08/bbq-chicken-pizza-image-square-2.jpg" alt="BBQ Chicken Pizza">
+            <div class="pizza-info">
+                <p>BBQ Chicken Pizza - ₹550</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhhd2FpaWFuJTIwcGl6emF8ZW58MHx8MHx8fDA%3D" alt="Hawaiian Pizza">
+            <div class="pizza-info">
+                <p>Hawaiian Pizza - ₹680</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://www.thecookierookie.com/wp-content/uploads/2023/09/meat-lovers-pizza-recipe-3.jpg" alt="Meat Lovers Pizza">
+            <div class="pizza-info">
+                <p>Meat Lovers Pizza - ₹800</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{% static 'main/js/pizza.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+/* Body and General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background */
+    color: #d4d4d4; /* Light gray text color for contrast */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1f1f1f; /* Darker header background */
+}
+
+.soups {
+    padding: 20px;
+}
+
+.soup-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Card Styles */
+.card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #2a2a2a; /* Dark border for cards */
+    border-radius: 8px;
+    overflow: hidden;
+    width: 50vw;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #1b1b1b; /* Dark background for cards */
+}
+
+.card img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Soup Info Section */
+.soup-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    width: 50%;
+}
+
+.soup-info p {
+    margin: 0 0 15px;
+    font-size: 32px;
+    color: #d4d4d4; /* Light gray for text */
+}
+
+/* Button Styles */
+button {
+    margin-right: 10px;
+    padding: 15px 25px;
+    border: none;
+    background-color: #28a745; /* Green background for buttons */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Header nav styles */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Home Link */
+.home-link {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #28a745; /* Green color for home link */
+}
+
+.home-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+/* Input and Button Styles */
+#search-input,
+#sort-select {
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #333; /* Dark background */
+    color: #d4d4d4; /* Light text color */
+    border: 1px solid #444; /* Darker border */
+    border-radius: 4px;
+}
+
+/* Search and Sort Buttons */
+#search-button,
+#sort-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover,
+#sort-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Cart Icon and Count */
+.cart-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+    filter: brightness(0.8); /* Dim icon for dark theme */
+}
+
+.cart-count {
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    background-color: #ff4500; /* Orange-red background for visibility */
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 14px;
+}

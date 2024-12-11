@@ -1,0 +1,225 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #d4d4d4; /* Light gray text color for contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #1f1f1f; /* Darker header background */
+    color: #28a745; /* Green text color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 28px;
+}
+
+nav a {
+    color: #28a745; /* Green for links */
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #218838; /* Darker green on hover */
+    color: #fff; /* White text on hover */
+}
+
+/* Cart Section */
+.cart {
+    margin: 30px;
+    width: 80%;
+    max-width: 600px;
+    background-color: #1b1b1b; /* Dark background for cart */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cart h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #28a745; /* Green for heading */
+}
+
+.cart-items {
+    margin-bottom: 20px;
+}
+
+.cart-items div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #2a2a2a; /* Darker border */
+    font-size: 18px;
+    color: #d4d4d4; /* Light gray for text */
+}
+
+.total-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #28a745; /* Green for total price */
+    margin-top: 20px;
+}
+
+.cart-items div:last-child {
+    border-bottom: none;
+}
+
+/* Payment Section */
+.payment-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #1b1b1b; /* Dark background for payment section */
+    border-radius: 8px;
+    border: 1px solid #444; /* Darker border */
+    text-align: left;
+}
+
+.payment-section h3 {
+    font-size: 20px;
+    color: #28a745; /* Green for payment section heading */
+    margin-bottom: 10px;
+}
+
+.payment-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #d4d4d4; /* Light gray for labels */
+}
+
+.payment-section input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* Final Price */
+.final-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #28a745; /* Green for final price */
+    margin-top: 15px;
+}
+
+/* Pay Now Button */
+.pay-now-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #28a745; /* Green background for button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pay-now-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.remove-btn {
+    margin-left: 15px;
+    padding: 5px 10px;
+    background-color: #dc3545; /* Red background for remove button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.remove-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+
+
+/* Address Section */
+.address-section {
+    margin-top: 20px;
+    padding: 15px;
+    
+
+    background-color: #1b1b1b; /* Dark background for payment section */
+    border-radius: 8px;
+    border: 1px solid #444; /* Darker border */
+    text-align: center;
+}
+
+.add-address-btn {
+    background-color: #1b1b1b;
+    color: rgb(31, 109, 66);
+    padding: 10px 15px;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-address-btn:hover {
+    background-color: #218838;
+}
+
+.address-form {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.address-form input,
+.address-form textarea,
+.address-form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #2a652a;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #25704d;
+}
+
+.save-address-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.save-address-btn:hover {
+    background-color: #0056b3;
+}
+
+.default-address {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #28a745;
+}

@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <link rel="stylesheet" href="{% static 'main/css/payment.css' %}">
+</head>
+<body>
+    <section class="payment-options">
+        <h2>Choose Your Payment Method</h2>
+
+        <!-- Payment Methods -->
+        <div class="methods">
+            <label>
+                <input type="radio" name="payment-option" value="gpay" checked>
+                Google Pay
+            </label>
+            <label>
+                <input type="radio" name="payment-option" value="debit-card">
+                Debit Card
+            </label>
+            <label>
+                <input type="radio" name="payment-option" value="upi">
+                UPI
+            </label>
+            <label>
+                <input type="radio" name="payment-option" value="cod">
+                Cash on Delivery (+₹50)
+            </label>
+        </div>
+
+        <!-- Total Price -->
+        <div class="price-details">
+            <p>Product Amount: ₹<span id="productAmount">0</span></p>
+            <p>GST (18%): ₹<span id="gstAmount">0</span></p>
+            <p>Delivery Charge (COD Only): ₹<span id="deliveryCharge">0</span></p>
+            <h3>Total Price: ₹<span id="totalPrice">0</span></h3>
+        </div>
+
+        <button id="confirmPaymentBtn" class="confirm-payment-btn">Confirm & Pay</button>
+    </section>
+
+    <script>
+        
+        
+    // Get price details from sessionStorage
+    const productAmount = parseFloat(sessionStorage.getItem("productAmount")) || 0;
+    const paymentMethod = sessionStorage.getItem("paymentMethod") || "gpay";
+
+    // Calculate GST and delivery charge
+    const gst = productAmount * 0.18; // GST 18%
+    const isCOD = paymentMethod === "cod";
+    const deliveryCharge = isCOD ? 50 : 0;
+
+    // Calculate total price
+    const totalPrice = productAmount + gst + deliveryCharge;
+
+    // Display price details in the UI
+    document.getElementById("productAmount").textContent = productAmount.toFixed(2);
+    document.getElementById("gstAmount").textContent = gst.toFixed(2);
+    document.getElementById("deliveryCharge").textContent = deliveryCharge.toFixed(2);
+    document.getElementById("totalPrice").textContent = totalPrice.toFixed(2);
+
+    // Confirm Payment
+    document.getElementById("confirmPaymentBtn").addEventListener('click', () => {
+        // Handle confirmation logic here
+        alert(`Payment of ₹${totalPrice.toFixed(2)} has been confirmed using ${paymentMethod}`);
+        // Redirect to success page or initiate further processing
+    });
+</script>
+
+</body>
+</html>

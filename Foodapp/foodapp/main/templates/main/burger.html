@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burgers</title>
+    <link rel="stylesheet" href="{% static 'main/css/burger.css' %}">
+</head>
+<body>
+    
+<!-- Header -->
+<header>
+    <a href="{% url 'index' %}" class="home-link">
+        <img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Home Icon" class="home-icon"> Home
+    </a>
+    <nav>
+        <div class="nav-items">
+            <input type="text" id="search-input" placeholder="Search Burgers...">
+            <button id="search-button">Search</button>
+            <select id="sort-select">
+                <option value="default">Sort by</option>
+                <option value="low-to-high">Price: Low to High</option>
+                <option value="high-to-low">Price: High to Low</option>
+            </select>
+            <button id="sort-button">Sort</button>
+            <a href="{% url 'cart' %}" id="cart-link">
+                <img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Cart" class="cart-icon">
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<!-- Burger Section -->
+<section class="burgers">
+    <h2>Our Delicious Burgers</h2>
+    <div class="burger-cards">
+        <!-- Classic Beef Burger -->
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeJSDKNyFyYjgwZzrLaXEYtERujvLqhcgFtvpoRHgMo1N5qgXKWIL61XhWrX7fbN2Szr4&usqp=CAU" alt="Classic Beef Burger">
+            <div class="burger-info">
+                <p>Classic Beef Burger - ₹250</p>
+                <button class="add-to-cart" data-name="Classic Beef Burger" data-price="250">Add to Cart</button>
+            </div>
+        </div>
+        
+        <!-- Chicken Burger -->
+        <div class="card">
+            <img src="https://www.recipetineats.com/tachyon/2019/08/Avocado-Chicken-Burgers_9.jpg?resize=500%2C375" alt="Chicken Burger">
+            <div class="burger-info">
+                <p>Chicken Burger - ₹220</p>
+                <button class="add-to-cart" data-name="Chicken Burger" data-price="220">Add to Cart</button>
+            </div>
+        </div>
+        
+        <!-- Cheese Burger -->
+        <div class="card">
+            <img src="https://png.pngtree.com/background/20230426/original/pngtree-large-burger-with-cheese-picture-image_2484848.jpg" alt="Cheese Burger">
+            <div class="burger-info">
+                <p>Cheese Burger - ₹280</p>
+                <button class="add-to-cart" data-name="Cheese Burger" data-price="280">Add to Cart</button>
+            </div>
+        </div>
+        
+        <!-- Veggie Burger -->
+        <div class="card">
+            <img src="https://static.vecteezy.com/system/resources/previews/030/655/157/non_2x/veggie-burger-on-wholegrain-bun-with-lettuce-tomato-free-photo.jpg" alt="Veggie Burger">
+            <div class="burger-info">
+                <p>Veggie Burger - ₹200</p>
+                <button class="add-to-cart" data-name="Veggie Burger" data-price="200">Add to Cart</button>
+            </div>
+        </div>
+        
+        <!-- Bacon Burger -->
+        <div class="card">
+            <img src="https://media.istockphoto.com/id/520215281/photo/bacon-burger.jpg?s=612x612&w=0&k=20&c=oeN1zlDU0_CiXXbSaH9ugzdUqaUmaUXUJXmLn-pw4jM=" alt="Bacon Burger">
+            <div class="burger-info">
+                <p>Bacon Burger - ₹300</p>
+                <button class="add-to-cart" data-name="Bacon Burger" data-price="300">Add to Cart</button>
+            </div>
+        </div>
+        
+        <!-- Mushroom Swiss Burger -->
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwWBjbQILJI0lct99KJc9jidGz77Npnw-x5Q&s" alt="Mushroom Swiss Burger">
+            <div class="burger-info">
+                <p>Mushroom Swiss Burger - ₹270</p>
+                <button class="add-to-cart" data-name="Mushroom Swiss Burger" data-price="270">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{% static 'main/js/burger.js' %}"></script>
+</body>
+</html>

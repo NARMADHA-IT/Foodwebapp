@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desserts</title>
+    <link rel="stylesheet" href="{% static 'main/css/dessert.css' %}">
+</head>
+<body>
+    
+<!-- Header -->
+<!-- Header -->
+<header>
+   <!-- <a href="index.html" class="home-link">
+        <img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Home Icon" class="home-icon"> Home
+    </a>-->
+    <a href="{% url 'index' %}" class="home-link">
+        <img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Home Icon" class="home-icon"> Home
+    </a>
+    
+    <nav>
+        <div class="nav-items">
+            <input type="text" id="search-input" placeholder="Search Desserts...">
+            <button id="search-button">Search</button>
+            <select id="sort-select">
+                <option value="default">Sort by</option>
+                <option value="low-to-high">Price: Low to High</option>
+                <option value="high-to-low">Price: High to Low</option>
+            </select>
+            <button id="sort-button">Sort</button>
+            <a href="{% url 'cart' %}" id="cart-link">
+                <img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Cart" class="cart-icon">
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
+            
+        </div>
+    </nav>
+</header>
+
+
+
+
+    <!-- Dessert Section -->
+    <section class="desserts">
+        <h2>Our Delicious Desserts</h2>
+        <div class="dessert-cards">
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/chocolate-cake-with-chocolate-frosting-strawberries-plate_1271802-16886.jpg?semt=ais_hybrid" alt="Chocolate Cake">
+                <div class="dessert-info">
+                    <p>Chocolate Cake - ₹250</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/special-homemade-cheesecake-with-fresh_779468-1212.jpg" alt="Cheesecake">
+                <div class="dessert-info">
+                    <p>Cheesecake - ₹300</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://agronfoodprocessing.com/wp-content/uploads/2024/04/24.jpg" alt="Ice Cream">
+                <div class="dessert-info">
+                    <p>Ice Cream - ₹150</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://i.redd.it/jyv8qtf5e8u71.jpg" alt="Fruit Tart">
+                <div class="dessert-info">
+                    <p>Fruit Tart - ₹200</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/professional-food-photography-chocolate-brownie-with-walnuts_964851-12202.jpg" alt="Brownie">
+                <div class="dessert-info">
+                    <p>Brownie - ₹180</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://t3.ftcdn.net/jpg/05/74/34/74/360_F_574347484_kMCVPFMxQyi5lwXXi9GwHBGpHZX4aFN0.jpg" alt="Panna Cotta">
+                <div class="dessert-info">
+                    <p>Panna Cotta - ₹220</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'main/js/dessert.js' %}"></script>
+</body>
+</html>
